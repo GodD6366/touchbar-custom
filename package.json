@@ -1,0 +1,119 @@
+{
+  "name": "touchbar-custom",
+  "displayName": "TouchBar-Custom",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.43.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.NPM_dev",
+    "onCommand:extension.NPM_build",
+    "onCommand:extension.NPM_test",
+    "onCommand:extension.NPM_run",
+    "onCommand:extension.GIT_PRO_COMMIT"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.NPM_dev",
+        "title": "Dev"
+      },
+      {
+        "command": "extension.NPM_build",
+        "title": "Build"
+      },
+      {
+        "command": "extension.NPM_test",
+        "title": "Test"
+      },
+      {
+        "command": "extension.NPM_run",
+        "title": "Run"
+      },
+      {
+        "command": "extension.GIT_PRO_COMMIT",
+        "title": "GCAS"
+      }
+    ],
+    "menus": {
+      "touchBar": [
+        {
+          "command": "extension.NPM_dev",
+          "group": "editing"
+        },
+        {
+          "command": "extension.NPM_build",
+          "group": "editing"
+        },
+        {
+          "command": "extension.NPM_test",
+          "group": "editing"
+        },
+        {
+          "command": "extension.NPM_run",
+          "group": "editing"
+        },
+        {
+          "command": "extension.GIT_PRO_COMMIT",
+          "group": "editing"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "TouchBar",
+      "properties": {
+        "touchbar.dev": {
+          "type": "string",
+          "default": "dev",
+          "description": "Choose what npm command will run from the RUN button"
+        },
+        "touchbar.build": {
+          "type": "string",
+          "default": "build",
+          "description": "Choose what npm command will run from the BUILD button."
+        },
+        "touchbar.gcas": {
+          "type": "string",
+          "default": "GCAS",
+          "description": "Run 'gitp commit -a -s'"
+        },
+        "touchbar.test": {
+          "type": "string",
+          "default": "test",
+          "description": "Choose what npm command will run from the TEST button"
+        },
+        "touchbar.run": {
+          "type": "string",
+          "default": "run",
+          "description": "Choose what npm command will run from the RUN button"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "lint": "eslint src --ext ts",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.1",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.43.0",
+    "eslint": "^6.8.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "glob": "^7.1.6",
+    "mocha": "^7.0.1",
+    "typescript": "^3.7.5",
+    "vscode-test": "^1.3.0"
+  }
+}
